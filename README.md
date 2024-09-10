@@ -8,6 +8,7 @@ Aqui estão os detalhes dos trabalhos e onde você pode encontrá-los:
 2. **Robo-Hash**
 3. **Blog**
 4. **Currículo**
+5. **CarrinhoDOM**
 
 ## Repositórios
 
@@ -18,6 +19,8 @@ Aqui estão os detalhes dos trabalhos e onde você pode encontrá-los:
 3. **sitePessoal** e **Blog-Ryan**
     
 4. **sitePessoalBootStrap**
+
+5. **CarrinhoDOM** dentro deste repositório
     
 
  
