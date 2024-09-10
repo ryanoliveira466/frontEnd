@@ -15,7 +15,7 @@ Aqui estão os detalhes dos trabalhos e onde você pode encontrá-los:
   
 2. **Teste-API**
    
-3. **sitePessoal**
+3. **sitePessoal** e **Blog-Ryan**
     
 4. **sitePessoalBootStrap**
     
