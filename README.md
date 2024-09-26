@@ -9,7 +9,7 @@ Aqui estão os detalhes dos trabalhos e onde você pode encontrá-los:
 3. **Blog**
 4. **Currículo**
 5. **CarrinhoDOM**
-6. **Mini Rede-Social
+6. **Mini Rede-Social**
 
 ## Repositórios
 
