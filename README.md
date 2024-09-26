@@ -9,6 +9,7 @@ Aqui estão os detalhes dos trabalhos e onde você pode encontrá-los:
 3. **Blog**
 4. **Currículo**
 5. **CarrinhoDOM**
+6. **Mini Rede-Social
 
 ## Repositórios
 
@@ -21,6 +22,8 @@ Aqui estão os detalhes dos trabalhos e onde você pode encontrá-los:
 4. **sitePessoalBootStrap**
 
 5. **CarrinhoDOM** dentro deste repositório
+
+6. **RedeSocialRyan**
     
 
  
