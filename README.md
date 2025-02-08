@@ -1,35 +1,83 @@
-# Trabalhos e Repositórios
+# Guia Básico de HTML, CSS e JavaScript
 
-Aqui estão os detalhes dos trabalhos e onde você pode encontrá-los:
+## 🌐 HTML (HyperText Markup Language)
+HTML é a linguagem de marcação usada para estruturar páginas da web.
 
-## Trabalhos
+### Exemplo de Estrutura Básica:
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Página</title>
+</head>
+<body>
+    <h1>Olá, Mundo!</h1>
+    <p>Este é um parágrafo.</p>
+</body>
+</html>
+```
 
-1. **Consumo de API**
-2. **Robo-Hash**
-3. **Blog**
-4. **Currículo**
-5. **CarrinhoDOM**
-6. **Mini Rede-Social**
-7. **Cópia de interace/site**
-8. **Site usando exemplos do BootStrap**
+## 🎨 CSS (Cascading Style Sheets)
+CSS é usado para estilizar elementos HTML.
 
-## Repositórios
+### Exemplo de CSS:
+```css
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+h1 {
+    color: blue;
+    text-align: center;
+}
+```
 
-1. **Colormind**
-  
-2. **Teste-API**
-   
-3. **sitePessoal** e **Blog-Ryan**
-    
-4. **sitePessoalBootStrap**
+### Como Vincular um Arquivo CSS ao HTML:
+```html
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+```
 
-5. **CarrinhoDOM** dentro deste repositório
+## 🚀 JavaScript (JS)
+JavaScript é a linguagem de programação que adiciona interatividade à página.
 
-6. **RedeSocialRyan**
+### Exemplo de JavaScript:
+```js
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector("h1").addEventListener("click", function() {
+        alert("Você clicou no título!");
+    });
+});
+```
 
-7. **interfacePrimeVideo**
+### Como Vincular um Arquivo JS ao HTML:
+```html
+<script src="script.js"></script>
+```
 
-8. **F1Site**
-    
+## 📌 Conclusão
+- **HTML** → Estrutura
+- **CSS** → Estilização
+- **JavaScript** → Interatividade
 
- 
+Juntos, esses três pilares formam a base do desenvolvimento web! 🚀
+
+---
+
+## Projetos
+
+* 1 - [musicPlayer](https://github.com/ryanoliveira466/musicPlayer)
+* 2 - [pokedexApi](https://github.com/ryanoliveira466/pokedexApi)
+* 3 - [interfacePrimeVideo](https://github.com/ryanoliveira466/interfacePrimeVideo)
+* 4 - [siteF1](https://github.com/ryanoliveira466/siteF1)
+* 5 - [colormind](https://github.com/ryanoliveira466/colormind)
+* 6 - [redeSocial](https://github.com/ryanoliveira466/redeSocial)
+* 7 - [css](https://github.com/ryanoliveira466/css)
+* 8 - [html](https://github.com/ryanoliveira466/html)
+* 9 - [bootStrap](https://github.com/ryanoliveira466/bootStrap)
+* 10 - [testeApiRoboHash](https://github.com/ryanoliveira466/testeApiRoboHash)
+* 11 - [apiGatos](https://github.com/ryanoliveira466/apiGatos)
+* 12 - [ryanoliveira466.github.io](https://github.com/ryanoliveira466/ryanoliveira466.github.io)
