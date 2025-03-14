@@ -4,6 +4,6 @@
 
 ---
 
-#### Lógica simples com HTML/JS para utilizaçao de um shopping cart
+Lógica simples com HTML/JS para utilizaçao de um shopping cart.
 
 ---
