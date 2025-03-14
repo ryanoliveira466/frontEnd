@@ -1,5 +1,3 @@
-Sure! I can explain the formula step by step, and don't worry—understanding the math behind it isn't too complicated!
-
 ### The Formula:
 ```javascript
 const scrollPercentage = (scrollY) / (documentHeight - windowHeight);
