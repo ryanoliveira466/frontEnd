@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cropper with Rounded Crop Box</title>
+    <link href="https://cdn.jsdelivr.net/npm/cropperjs/dist/cropper.css" rel="stylesheet">
+    <style>
+        #image {
+            max-width: 100%;
+        }
+
+        /* Ensure the crop box has rounded corners */
+        .cropper-crop-box {
+            border-radius: 20px !important; /* Rounded corners for the selection box */
+        }
+
+        /* Optionally style the cropper's canvas */
+        .cropper-canvas {
+            border-radius: 20px !important; /* Rounded corners for the cropped area */
+        }
+
+        /* Optional: Style the cropper container itself (for outer rounded container) */
+        .cropper-container {
+            border-radius: 20px !important;
+        }
+
+        /* Style for the download button */
+        #downloadBtn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #downloadBtn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img id="image" src="DALL·E 2025-03-11 18.20.35 - A cute, anime-inspired character with a bright smile and blue eyes. The character has soft, flowing hair, a friendly and approachable expression, and .webp" alt="Picture">
+    </div>
+
+    <!-- Download button -->
+    <button id="downloadBtn">Download Cropped Image</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/cropperjs@1.6.2/dist/cropper.min.js"></script>
+    <script>
+        window.onload = function() {
+            var image = document.getElementById('image');
+            
+            // Initialize the cropper on the image
+            var cropper = new Cropper(image, {
+                aspectRatio: 0,  // Ensures a square crop box, which will respect border-radius
+                viewMode: 2,     // Restricts cropping area to the canvas
+                responsive: true,
+                autoCropArea: 1,
+                ready: function () {
+                    // When cropper is ready, apply additional styles if needed
+                }
+            });
+
+            // Handle the download button click
+            document.getElementById('downloadBtn').addEventListener('click', function() {
+                var croppedCanvas = cropper.getCroppedCanvas(); // Get the cropped area as a canvas
+
+                // Apply the same border-radius to the cropped canvas
+                var ctx = croppedCanvas.getContext('2d');
+                var radius = 20; // Same border-radius as the crop box
+
+                // Create a temporary canvas with rounded corners
+                var tempCanvas = document.createElement('canvas');
+                var tempCtx = tempCanvas.getContext('2d');
+
+                // Set canvas dimensions to match the cropped canvas
+                tempCanvas.width = croppedCanvas.width;
+                tempCanvas.height = croppedCanvas.height;
+
+                // Draw a rounded rectangle on the temporary canvas
+                tempCtx.beginPath();
+                tempCtx.moveTo(radius, 0);
+                tempCtx.lineTo(tempCanvas.width - radius, 0);
+                tempCtx.quadraticCurveTo(tempCanvas.width, 0, tempCanvas.width, radius);
+                tempCtx.lineTo(tempCanvas.width, tempCanvas.height - radius);
+                tempCtx.quadraticCurveTo(tempCanvas.width, tempCanvas.height, tempCanvas.width - radius, tempCanvas.height);
+                tempCtx.lineTo(radius, tempCanvas.height);
+                tempCtx.quadraticCurveTo(0, tempCanvas.height, 0, tempCanvas.height - radius);
+                tempCtx.lineTo(0, radius);
+                tempCtx.quadraticCurveTo(0, 0, radius, 0);
+                tempCtx.closePath();
+                tempCtx.clip();
+
+                // Draw the cropped image onto the temp canvas with rounded corners
+                tempCtx.drawImage(croppedCanvas, 0, 0);
+
+                // Convert the temporary canvas to a data URL
+                var roundedImage = tempCanvas.toDataURL();
+
+                // Create a temporary link to trigger the download
+                var link = document.createElement('a');
+                link.href = roundedImage;
+                link.download = 'cropped-image.png'; // Set the file name for download
+                link.click();  // Trigger the download
+            });
+        };
+    </script>
+</body>
+</html>
