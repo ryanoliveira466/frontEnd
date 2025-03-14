@@ -1,0 +1,1 @@
+https://emojiapi.dev/emojis

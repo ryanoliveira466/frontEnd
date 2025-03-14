@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Path Drawing Animation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        svg {
+            margin-top: 50px;
+        }
+
+        path {
+            stroke-dasharray: 600; /* Length of the path */
+            stroke-dashoffset: 600; /* Initially hide the path */
+            transition: stroke-dashoffset 2s ease;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>SVG Path Drawing Animation</h1>
+
+        <button id="startButton">Start Animation</button>
+        <button id="pauseButton">Pause Animation</button>
+        <button id="resetButton">Reset Animation</button>
+
+        <svg id="svgContainer" width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <path id="complexPath" 
+                d="M50,150 Q150,50 250,150 T450,150"
+                stroke="black" 
+                fill="transparent" 
+                stroke-width="5"/>
+        </svg>
+    </div>
+
+    <script>
+        const path = document.getElementById('complexPath');
+        const startButton = document.getElementById('startButton');
+        const pauseButton = document.getElementById('pauseButton');
+        const resetButton = document.getElementById('resetButton');
+
+        // Calculate path length dynamically to apply proper stroke-dasharray
+        const pathLength = path.getTotalLength();
+
+        // Set the stroke-dasharray and stroke-dashoffset to match the path length
+        path.style.strokeDasharray = pathLength;
+        path.style.strokeDashoffset = pathLength;
+
+        // Start the animation when the button is clicked
+        startButton.addEventListener('click', () => {
+            path.style.strokeDashoffset = '0'; // Trigger the drawing of the path
+        });
+
+        // Pause the animation when the pause button is clicked
+        pauseButton.addEventListener('click', () => {
+            path.style.transition = 'none'; // Remove transition to freeze the path
+        });
+
+        // Reset the animation when the reset button is clicked
+        resetButton.addEventListener('click', () => {
+            path.style.transition = 'stroke-dashoffset 2s ease'; // Re-enable transition
+            path.style.strokeDashoffset = pathLength; // Reset to start position
+        });
+
+        // Optional: Trigger animation when the path enters the viewport (on scroll)
+        window.addEventListener('scroll', () => {
+            const pathPosition = path.getBoundingClientRect().top;
+            const viewportHeight = window.innerHeight;
+
+            if (pathPosition <= viewportHeight) {
+                path.style.strokeDashoffset = '0'; // Start drawing when in view
+            }
+        });
+    </script>
+
+</body>
+</html>

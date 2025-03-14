@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Path Drawing Based on Scroll</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 200vh; /* Make the body large enough to scroll */
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        svg {
+            margin-top: 50px;
+        }
+
+        path {
+            stroke-dasharray: 600; /* Length of the path */
+            stroke-dashoffset: 600; /* Initially hide the path */
+            transition: stroke-dashoffset 0.1s ease;
+        }
+
+        .spacer {
+            height: 100vh; /* Spacer for scroll effect */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="spacer">Scroll to draw the path</div> <!-- Spacer div for scroll -->
+    
+    <svg id="svgContainer" width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <path id="complexPath" 
+            d="M50,150 Q150,50 250,150 T450,150"
+            stroke="black" 
+            fill="transparent" 
+            stroke-width="5"/>
+    </svg>
+
+    <div class="spacer"></div> <!-- Another spacer div -->
+
+    <script>
+        const path = document.getElementById('complexPath');
+        
+        // Calculate path length dynamically to apply proper stroke-dasharray
+        const pathLength = path.getTotalLength();
+
+        // Set the stroke-dasharray and stroke-dashoffset to match the path length
+        path.style.strokeDasharray = pathLength;
+        path.style.strokeDashoffset = pathLength;
+
+        // Function to handle scroll and dynamically draw the path based on scroll position
+        function handleScroll() {
+            // Get the scroll position relative to the entire document
+            const scrollY = window.scrollY; // Scroll Boundaries
+            const documentHeight = document.documentElement.scrollHeight; //Full height of the document
+            const windowHeight = window.innerHeight; //User view
+
+            console.log(scrollY);
+            
+
+            // Calculate the scroll percentage
+            const scrollPercentage = (scrollY) / (documentHeight - windowHeight);
+
+           
+            
+
+            // Use scroll percentage to dynamically change the stroke-dashoffset
+            const drawLength = pathLength * scrollPercentage;
+            path.style.strokeDashoffset = pathLength - drawLength; // As the user scrolls down, the path is drawn
+
+            // Optional: If the user scrolls up, the drawing will reverse
+        }
+
+        // Listen for the scroll event
+        window.addEventListener('scroll', handleScroll);
+    </script>
+
+</body>
+</html>
+
+
