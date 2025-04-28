@@ -82,18 +82,16 @@ table {
 - Padrão de página
 
 ```html
-  <body>
+<body>
     <header></header>
 
     <main>
         <section>
             <article>
-
             </article>
         </section>
     </main>
 
     <footer></footer>
-
-   <body>
+</body>
 ```
