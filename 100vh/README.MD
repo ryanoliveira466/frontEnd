@@ -78,3 +78,22 @@ table {
             flex-grow: 1;
         }
 ```
+
+- Padrão de página
+
+```html
+  <body>
+    <header></header>
+
+    <main>
+        <section>
+            <article>
+
+            </article>
+        </section>
+    </main>
+
+    <footer></footer>
+
+   <body>
+```
