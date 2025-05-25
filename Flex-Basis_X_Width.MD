@@ -59,5 +59,3 @@ Great question — **`flex-basis` vs. `width`** is a subtle but important distin
 
 * Use `flex-basis` **within Flexbox layouts** to define flexible sizing.
 * Use `width` **outside Flexbox** or when you want a fixed size.
-
-Would you like a visual CodePen-style demo to see the difference live?
